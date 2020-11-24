@@ -68,8 +68,8 @@ $(document).ready(function() {
                 <td>${element.id}</td>
                 <td><a href="#" class="Iproducto">${element.nombre}</a></td>
                 <td>${element.codigo}</td>
+                <td>${element.categoria}</td>
                 <td>${element.frase_promocional}</td>
-                <td>${element.descripcion}</td>
                 <td>${element.descripcion}</td>
                 <td>${element.colores}</td>
                 <td>${element.precio}</td>
