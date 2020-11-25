@@ -9,6 +9,7 @@ $(document).ready(function() {
             $.ajax({
                 url: 'buscador.php',
                 type: 'POST',
+                datatype: 'json',
                 data: { search: search },
                 success: function(response) {
                     let datos = JSON.parse(response);
@@ -58,7 +59,9 @@ $(document).ready(function() {
         $.ajax({
             url: "listar.php",
             type: "GET",
+              datatype: 'json',
             success: function(response) {
+                
                 let template = '';
 
                 let Productos = JSON.parse(response);
@@ -108,17 +111,18 @@ $(document).ready(function() {
         let id = $(element).attr('productoID');
         $.post('productounico.php', { id }, function(response) {
             const producto = JSON.parse(response);
-            $('#nombre').val(producto.nombre);
-            $('#codigo').val(producto.codigo);
-            $('#categoria').val(producto.categoria);
-            $('#frase_promocional').val(producto.frase_promocional);
-            $('#descripcion').val(producto.descripcion);
-            $("#colores").val(producto.colores);
-            $("#precio").val(producto.precio);
-            $('#disponibilidad').val(producto.disponibilidad);
-            $('#promocion').val(producto.promocion);
-            $('#fecha').val(producto.fecha);
-            $("#ProductoID").val(producto.id);
+            console.log(producto.nombre);
+            $('#nombre').val(producto[0].nombre);
+            $('#codigo').val(producto[0].codigo);
+            $('#categoria').val(producto[0].categoria);
+            $('#frase_promocional').val(producto[0].frase_promocional);
+            $('#descripcion').val(producto[0].descripcion);
+            $("#colores").val(producto[0].colores);
+            $("#precio").val(producto[0].precio);
+            $('#disponibilidad').val(producto[0].disponibilidad);
+            $('#promocion').val(producto[0].promocion);
+            $('#fecha').val(producto[0].fecha);
+            $("#ProductoID").val(producto[0].id);
             edit = true;
 
 
